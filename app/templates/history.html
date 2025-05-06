@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historique des Points</title>
+</head>
+<body>
+    <h1>Historique des Points de {{ user.username }}</h1>
+    <ul>
+        {% for transaction in transactions %}
+            <li>
+                {{ transaction.timestamp.strftime('%Y-%m-%d %H:%M:%S') }} - 
+                {{ transaction.category }} : {{ transaction.amount }} points 
+                <br> 📝 {{ transaction.reason }}
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('index') }}">Retour</a>
+</body>
+</html>
